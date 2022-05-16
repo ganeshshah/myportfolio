@@ -1,76 +1,51 @@
-import React, { Component } from 'react';
-import randomColor from 'randomcolor';
-import TagCloud from 'react-tag-cloud';
-import '../css/sphere.css';
+import React, { useEffect } from "react";
+import "../css/sphere.css";
+import TagCloud from "TagCloud";
 
-const styles = {
-  large: {
-    fontSize: 60,
-    fontWeight: 'bold'
-  },
-  small: {
-    opacity: 0.7,
-    fontSize: 16
-  }
-};
+const myTags = [
+  "JavaScript",
+  "CSS",
+  "HTML",
+  "C",
+  "C++",
+  "React",
+  "Python",
+  "Java",
+  "git",
+  "django",
+  "Node.js",
+  "OpenCV",
+  "GCP",
+  "MySQL",
+  "jQuery",
+];
 
-class TechSphere extends Component {
-  componentDidMount() {
-    setInterval(() => {
-      this.forceUpdate();
-    }, 3000);
-  }
 
-  render() {
-    return (
-      <div className='app-outer'>
-        <div className='app-inner'>
-          <TagCloud 
-            className='tag-cloud'
-            style={{
-              fontFamily: 'sans-serif',
-              //fontSize: () => Math.round(Math.random() * 50) + 16,
-              fontSize: 30,
-              color: () => randomColor({
-                hue: 'blue'
-              }),
-              padding: 5,
-            }}>
-            <div
-              style={{
-                fontFamily: 'serif',
-                fontSize: 40,
-                fontStyle: 'italic',
-                fontWeight: 'bold',
-                color: randomColor()
-              }}>Futurama</div>
-            <div style={styles.large}>Java</div>
-            <div style={styles.large}>C++</div>
-            <div style={styles.large}>Javascript</div>
-            <div style={styles.large}>C</div>
-            <div style={styles.large}>SpringBoot</div>
-            <div style={styles.large}>ReactJs</div>
-            <div style={styles.large}>NodeJs</div>
-            <div className="tag-item-wrapper">
-              <div>
-              
-              </div>
-              <div className="tag-item-tooltip">
-               
-              </div>
-            </div>
-           
-            <div style={styles.medium}>Intellij</div>
-            <div style={styles.medium}>VsCode</div>
-            <div style={styles.medium}>SonarQube</div>
-            <div style={styles.medium}>CheckMarx</div>
-           
-          </TagCloud>
-        </div>
+function TechSphere() {
+  useEffect(() => {
+    TagCloud(".sphere", myTags, {
+      // radius in px
+      radius: 300,
+      // animation speed
+      // slow, normal, fast
+      maxSpeed: "fast",
+      initSpeed: "fast",
+      // 0 = top
+      // 90 = left
+      // 135 = right-bottom
+      direction: 135,
+      // interact with cursor move on mouse out
+      keep: true,
+    }); 
+    document.querySelector(".sphere").style.color = '#34A853';
+  },[]);
+  return (
+    <div >
+      <div className="sphere" >
+
       </div>
-    );
-  }
+    </div>
+  );
 }
-
 
 export default TechSphere;

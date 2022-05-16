@@ -9,14 +9,14 @@ import Grid from "@mui/material/Grid";
 function App() {
   return (
     <Grid container spacing={0}>
-      <Particlejsmain />
+       <Particlejsmain />
       <Grid item xs={2}>
         <Container className="nav-parent">
           <NavList />
         </Container>
       </Grid>
       <Grid item xs={10}>
-        <Container className="home-container">
+        <Container id="main" className="home-container">
           <Home/>
         </Container>
       </Grid>

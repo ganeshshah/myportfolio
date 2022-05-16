@@ -1,5 +1,6 @@
 .nav-parent {
     height: 100vh;
+    background-color: #1c204d;
 }
 
 .main-container{
@@ -11,12 +12,14 @@
     position: relative;
     height: 100vh;
     text-align: center;
-    color: aliceblue;
-    
+    color: aliceblue;  
 }
 
 .techsphere-container{
     position: relative;
     height: 100vh;
     
+}
+.home-parent {
+    padding-top: 20%;
 }

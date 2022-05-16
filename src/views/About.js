@@ -8,7 +8,6 @@ import Grid from "@mui/material/Grid";
 function About() {
   return (
     <Grid container spacing={0}>
-      <Particlejsmain />
       <Grid item xs={2}>
         <Container className="nav-parent">
           <NavList />

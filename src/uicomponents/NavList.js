@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BrowserRouter } from "react-router-dom";
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -26,50 +24,50 @@ export default function NavList() {
         </div>
         <div>
         <nav aria-label="main mailbox folders">
-          <List  sx = {{ color: 'white'}}>
+          <List  sx = {{ color: 'aliceblue'}}>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon style={{ color: "white" }}>
+              <ListItemButton component="a" href="/">
+                <ListItemIcon style={{ color: "aliceblue" }}>
                   <HomeIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon style={{ color: "white" }}>
+              <ListItemButton component="a" href="/About">
+                <ListItemIcon style={{ color: "aliceblue" }}>
                   <PersonIcon />
                 </ListItemIcon>
                 <ListItemText primary="About" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon style={{ color: "white" }}>
+              <ListItemButton component="a" href="/Work">
+                <ListItemIcon style={{ color: "aliceblue" }}>
                   <WorkIcon />
                 </ListItemIcon>
                 <ListItemText primary="Work" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon style={{ color: "white" }}>
+              <ListItemButton component="a" href="/Skills">
+                <ListItemIcon style={{ color: "aliceblue" }}>
                   <CodeIcon />
                 </ListItemIcon>
                 <ListItemText primary="Skills" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon style={{ color: "white" }}>
+              <ListItemButton component="a" href="/Projects">
+                <ListItemIcon style={{ color: "aliceblue" }}>
                   <IntegrationInstructionsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Projects" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon style={{ color: "white" }}>
+              <ListItemButton component="a" href="/Contact">
+                <ListItemIcon style={{ color: "aliceblue" }}>
                   <ContactMailIcon />
                 </ListItemIcon>
                 <ListItemText primary="Contact" />
