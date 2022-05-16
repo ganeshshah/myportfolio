@@ -1,0 +1,22 @@
+.nav-parent {
+    height: 100vh;
+}
+
+.main-container{
+    position: absolute;
+    height: 100vh;
+}
+
+.home-container{
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    color: aliceblue;
+    
+}
+
+.techsphere-container{
+    position: relative;
+    height: 100vh;
+    
+}
