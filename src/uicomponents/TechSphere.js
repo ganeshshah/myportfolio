@@ -3,20 +3,19 @@ import "../css/sphere.css";
 import TagCloud from "TagCloud";
 
 const myTags = [
+  "Java",
+  "React",
+  "SpringBoot",
   "JavaScript",
   "CSS",
   "HTML",
   "C",
   "C++",
-  "React",
   "Python",
-  "Java",
   "git",
-  "django",
   "Node.js",
-  "OpenCV",
-  "GCP",
   "MySQL",
+  "Oracle",
   "jQuery",
 ];
 
@@ -25,7 +24,7 @@ function TechSphere() {
   useEffect(() => {
     TagCloud(".sphere", myTags, {
       // radius in px
-      radius: 300,
+      radius: 200,
       // animation speed
       // slow, normal, fast
       maxSpeed: "fast",
@@ -38,13 +37,14 @@ function TechSphere() {
       keep: true,
     }); 
     document.querySelector(".sphere").style.color = '#34A853';
+        
   },[]);
   return (
-    <div >
+    
       <div className="sphere" >
 
       </div>
-    </div>
+    
   );
 }
 

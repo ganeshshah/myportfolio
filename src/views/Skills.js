@@ -4,7 +4,10 @@ import NavList from "../uicomponents/NavList";
 import "../css/App.css";
 import Grid from "@mui/material/Grid";
 import TechSphere from '../uicomponents/TechSphere';
-import { height } from '@mui/system';
+import SkillsBar from '../uicomponents/SkillsBar';
+import ToolsWorked from '../uicomponents/ToolsWorked';
+import Stack from "@mui/material/Stack";
+
 
 
 function Skills() {
@@ -15,13 +18,20 @@ function Skills() {
         <NavList />
       </Container>
     </Grid>
-    <Grid item xs={10}>
+    <Grid item xs={10} style = {{}}>
       <Grid container spacing={0}>
       <Grid item xs = {6} style = {{ height: "100vh"}}>
-         <h1>Skills to implement</h1>
+         <SkillsBar />
       </Grid>
-      <Grid item xs = {6} style = {{  height: "100vh"}}>
-        <TechSphere/>
+      <Grid item xs = {6} style = {{height: "10vh"}}>
+      <Stack direction="column" spacing={2}>
+      <Container>
+      <TechSphere />
+      </Container>
+      <Container>
+      <ToolsWorked />
+      </Container>
+      </Stack>
       </Grid>
       </Grid>
     </Grid>
