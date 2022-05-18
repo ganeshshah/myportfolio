@@ -36,7 +36,7 @@ function TechSphere() {
       // interact with cursor move on mouse out
       keep: true,
     }); 
-    document.querySelector(".sphere").style.color = '#34A853';
+    document.querySelector(".sphere").style.color = 'white';
         
   },[]);
   return (

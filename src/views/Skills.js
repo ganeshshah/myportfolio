@@ -18,9 +18,9 @@ function Skills() {
         <NavList />
       </Container>
     </Grid>
-    <Grid item xs={10} style = {{}}>
+    <Grid item xs={10} style = {{backgroundColor: '#1e324d', color:'white', textAlign:'center'}}>
       <Grid container spacing={0}>
-      <Grid item xs = {6} style = {{ height: "100vh"}}>
+      <Grid item xs = {6} style = {{ marginTop:'30px' ,height: "100vh"}}>
          <SkillsBar />
       </Grid>
       <Grid item xs = {6} style = {{height: "10vh"}}>

@@ -32,6 +32,7 @@ function SkillsBar() {
           </div>
           <div className="skillsprogress">
             <ProgressBar
+              bgColor="rgb(160, 86, 121)"
               completed={80}
               animateOnRender={true}
               isLabelVisible={false}
@@ -50,6 +51,7 @@ function SkillsBar() {
           </div>
           <div className="skillsprogress">
             <ProgressBar
+            bgColor="rgb(160, 86, 121)"
               completed={60}
               animateOnRender={true}
               isLabelVisible={false}
@@ -69,6 +71,7 @@ function SkillsBar() {
           </div>
           <div className="skillsprogress">
             <ProgressBar
+            bgColor="rgb(160, 86, 121)"
               completed={70}
               animateOnRender={true}
               isLabelVisible={false}
@@ -88,6 +91,7 @@ function SkillsBar() {
           </div>
           <div className="skillsprogress">
             <ProgressBar
+            bgColor="rgb(160, 86, 121)"
               completed={70}
               animateOnRender={true}
               isLabelVisible={false}
@@ -107,6 +111,7 @@ function SkillsBar() {
           </div>
           <div className="skillsprogress">
             <ProgressBar
+            bgColor="rgb(160, 86, 121)"
               completed={80}
               animateOnRender={true}
               isLabelVisible={false}
@@ -126,6 +131,7 @@ function SkillsBar() {
           </div>
           <div className="skillsprogress">
             <ProgressBar
+            bgColor="rgb(160, 86, 121)"
               completed={80}
               animateOnRender={true}
               isLabelVisible={false}
@@ -145,6 +151,7 @@ function SkillsBar() {
           </div>
           <div className="skillsprogress">
             <ProgressBar
+            bgColor="rgb(160, 86, 121)"
               completed={85}
               animateOnRender={true}
               isLabelVisible={false}

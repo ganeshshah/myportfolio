@@ -1,146 +1,145 @@
 import React from "react";
+import { useFormik } from "formik";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import * as yup from "yup";
 import "../css/App.css";
-import 'bootstrap/dist/css/bootstrap.css';
-import { send } from 'emailjs-com';
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import NavList from "../uicomponents/NavList";
+import { Grid } from "@mui/material";
+import { Container } from "@mui/material";
+import Card from '@mui/material/Card';
+import { margin } from "@mui/system";
 
 
-class Contact extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      nameError: false,
-      contact: '',
-      email: '',
-      emailError: false,
-      emailError2: false,
-      message: '',
-      messageError: false,
-      formValid: false
-    };
+const validationSchema = yup.object({
+  name: yup.string("Enter your Name").required("Name is required"),
+  email: yup
+    .string("Enter your email")
+    .email("Enter a valid email")
+    .required("Email is required"),
+  phone: yup
+    .number("Enter your phone number")
+    .positive()
+    .integer()
+    .test(
+      "len",
+      "Phone digit must be equal to or more than 10",
+      (val) => val.toString().length >= 10
+    ),
+  message: yup.string("Enter your Message").required("Message is required"),
+});
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleBlur   = this.handleBlur.bind(this);
-  }
-  
-  isValidEmail(email) {
-    return /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email);
-  }
-  
-  // isValidcontact(contactno) {
-  //   return /^[6-9]\d{9}$/.test(contactno);
-  // }  
-  
-  handleBlur(e) {
-   
-    const name = e.target.name; 
-    const value = e.target.value;
+function Contact() {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert("message sent successfully");
 
-    this.setState({ [name]: value  });
-
-    if (value.length <= 0 && (name == 'name')) {
-      this.setState({ nameError: true });
-    } else {
-      this.setState({ nameError: false });
-    } 
-
-    if (value.length <= 0 && (name == 'email')) {
-      this.setState({ emailError: true });
-      this.setState({ emailError2: false });
-    } else {
-      this.setState({ emailError: false });
-      if(this.isValidEmail(value)) {
-        this.setState({ emailError2: false });  
-      } else {
-        this.setState({ emailError2: true });  
-      }
-    } 
-
-  }
-  
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value  });
-  }
-
-  handleSubmit(e) {
-    const { name, email, message, nameError, emailError, emailError2, messageError } = this.state;
-    
-    this.setState({ nameError: name ? false : true });
-    this.setState({ messageError: message ? false : true });
-    this.setState({ emailError: email ? false : true });
-    if (email && !emailError) { this.setState({ emailError2: this.isValidEmail(email) ? false : true }); }
-    
-
-    if (name && email && message && !nameError && !emailError && !emailError2 && !messageError) {
-      this.setState({ formValid: true });
-    } else {
-      this.setState({ formValid: false });
-    }
-
-    e.preventDefault(); 
-  }
-  
-  render() {
-    
-    const { name, email, message, nameError, emailError, emailError2, messageError, formValid } = this.state;
-
-    if(!formValid) {
-      
-    return (
-<>
-<div className="card shadow-sm border-0 px-3 rounded-2 mb-3 py-4 mx-auto mt-5 bg-light">
-  <div className="card-header bg-transparent border-0 text-center text-uppercase"><h3>{this.props.title}</h3></div>
-  <div className="card-body">
-    <form action="/" onSubmit={(e) => this.handleSubmit(e)} encType="multipart/form-data" autoComplete="off">
-      <div className="form-group">
-        <label className="mb-0">Your name<span className="text-danger">*</span></label>
-        <input name="name" type="text" className="form-control" placeholder="Name" value={this.state.name} onChange={this.handleChange} onBlur={this.handleBlur} />
-        { nameError
-          ? <div className="alert alert-danger mt-2">Name is a required field.</div>
-          : ''
-        }
-      </div>
-      <div className="form-group">
-        <label className="mb-0">Your email<span className="text-danger">*</span></label>
-        <input name="email" type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={this.handleChange} onBlur={this.handleBlur} />
-        { emailError
-          ? <div className="alert alert-danger mt-2">Email is a required field.</div>
-          : ''
-        }
-        { emailError2
-          ? <div className="alert alert-danger mt-2">Email invalid.</div>
-          : ''
-        }
-      </div>
-      <div className="form-group">
-        <label className="mb-0">Your contact number (Optional)</label>
-        <input name="contact" type="text" className="form-control" placeholder="Contact" onChange={this.handleChange} value={this.state.contact}  />
-      </div>
-      <div className="form-group">
-        <label className="mb-0">Message<span className="text-danger">*</span></label>
-        <textarea name="message" type="text" className="form-control" placeholder="Message" value={this.state.message} onChange={this.handleChange} onBlur={this.handleBlur} />
-        { messageError
-          ? <div className="alert alert-danger mt-2">Message is a required field.</div>
-          : ''
-        }
-      </div>
-        <p className="text-center mb-0"><input type="submit" className="btn btn-primary btn-lg w-100 text-uppercase" value="Submit Now" /></p>
-    </form>
-    
-  </div>
-</div>
-        
-    </>
-    );
-      } else {
-       return (
-        null
+      const parameters = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+        reply_to: "shahganesh777@gmail.com",
+      };
+      emailjs
+        .send(
+          "service_irl4dbl",
+          "template_cvre5vg",
+          parameters,
+          "ewhlDWQ2zjx1HihsJ"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
         );
-      }
-  }
+    },
+  });
+
+  return (
+    <Grid container spacing={0}>
+      <Grid item xs={2}>
+        <Container className="nav-parent">
+          <NavList />
+        </Container>
+      </Grid>
+      <Grid item xs={10}  style={{ backgroundColor: '#1e324d'}}>
+         <Card sx={{backgroundColor:"#c5d4e7", maxWidth: '520px', paddingTop:'20px',paddingBottom:'20px', margin:"auto", marginTop:"10%"}}>
+         <div className="form-container">
+            <form onSubmit={formik.handleSubmit}>
+              <TextField
+                fullWidth
+                id="name"
+                name="name"
+                label="Your name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                error={formik.touched.name && Boolean(formik.errors.name)}
+                helperText={formik.touched.name && formik.errors.name}
+              />
+              <br />
+              <br />
+              <TextField
+                fullWidth
+                id="email"
+                name="email"
+                label="Your Email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+              />
+              <br />
+              <br />
+              <TextField
+                fullWidth
+                id="phone"
+                name="phone"
+                label="Your Mobile no"
+                value={formik.values.phone}
+                onChange={formik.handleChange}
+                error={formik.touched.phone && Boolean(formik.errors.phone)}
+                helperText={formik.touched.phone && formik.errors.phone}
+              />
+              <br />
+              <br />
+              <TextField
+                fullWidth
+                id="message"
+                name="message"
+                label="Message for me"
+                value={formik.values.message}
+                onChange={formik.handleChange}
+                error={formik.touched.message && Boolean(formik.errors.message)}
+                helperText={formik.touched.message && formik.errors.message}
+              />
+              <br />
+              <br />
+              <Button
+                variant="contained"
+                fullWidth
+                type="submit"
+                sx={{backgroundColor:'#1e324d'}}
+              >
+                Submit
+              </Button>
+            </form>
+          </div>
+         </Card>
+      </Grid>
+    </Grid>
+  );
 }
 
 export default Contact;

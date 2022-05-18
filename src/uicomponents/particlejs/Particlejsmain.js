@@ -23,7 +23,7 @@ const  Particlejsmain = () => {
       options={{
         background: {
           color: {
-            value: "#1c204d",
+            value: "#0f213b",
           },
         },
         
