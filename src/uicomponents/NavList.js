@@ -13,12 +13,13 @@ import CodeIcon from "@mui/icons-material/Code";
 import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Link, NavLink } from "react-router-dom";
 
 export default function NavList() {
   return (
-    <Box sx={{ width: "100%", maxWidth: 360 }}>
+    <Box sx={{ width: "100%"}}>
       <div style={{ height: "30vh" }}>
-              <h3 class="animate-charcter">Ganesh</h3>
+        <h3 class="animate-charcter">Ganesh</h3>
       </div>
       <div>
         <nav aria-label="main mailbox folders">
@@ -28,15 +29,19 @@ export default function NavList() {
                 <ListItemIcon style={{ color: "aliceblue" }}>
                   <HomeIcon />
                 </ListItemIcon>
-                <ListItemText primary="Home" />
+                <Link to="/">
+                  <ListItemText primary="Home"  style={{ color: "white" }}/>
+                </Link>
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton component="a" href="/About">
+              <ListItemButton>
                 <ListItemIcon style={{ color: "aliceblue" }}>
                   <PersonIcon />
                 </ListItemIcon>
-                <ListItemText primary="About" />
+                <Link to="/About">
+                  <ListItemText primary="About"  style={{ color: "white" }} />
+                </Link>
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
@@ -44,7 +49,9 @@ export default function NavList() {
                 <ListItemIcon style={{ color: "aliceblue" }}>
                   <WorkIcon />
                 </ListItemIcon>
-                <ListItemText primary="Work" />
+                <Link to="/Work">
+                  <ListItemText primary="Work"  style={{ color: "white" }} />
+                </Link>
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
@@ -52,7 +59,9 @@ export default function NavList() {
                 <ListItemIcon style={{ color: "aliceblue" }}>
                   <CodeIcon />
                 </ListItemIcon>
-                <ListItemText primary="Skills" />
+                <Link to="/skills">
+                  <ListItemText primary="Skills"  style={{ color: "white" }} />
+                </Link>
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
@@ -60,7 +69,9 @@ export default function NavList() {
                 <ListItemIcon style={{ color: "aliceblue" }}>
                   <IntegrationInstructionsIcon />
                 </ListItemIcon>
-                <ListItemText primary="Projects" />
+                <Link to="/Projects">
+                  <ListItemText primary="Projects"  style={{ color: "white" }} />
+                </Link>
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
@@ -68,7 +79,9 @@ export default function NavList() {
                 <ListItemIcon style={{ color: "aliceblue" }}>
                   <ContactMailIcon />
                 </ListItemIcon>
-                <ListItemText primary="Contact" />
+                <Link to="/Contact">
+                  <ListItemText primary="Contact"  style={{ color: "white" }} />
+                </Link>
               </ListItemButton>
             </ListItem>
           </List>

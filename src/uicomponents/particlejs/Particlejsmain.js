@@ -21,12 +21,6 @@ const  Particlejsmain = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        background: {
-          color: {
-            value: "#0f213b",
-          },
-        },
-        
         fpsLimit: 120,
         interactivity: {
           events: {

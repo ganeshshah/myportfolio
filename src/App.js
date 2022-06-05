@@ -1,24 +1,20 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import NavList from "./uicomponents/NavList";
-import Home from "./views/Home";
-import Particlejsmain from "./uicomponents/particlejs/Particlejsmain";
 import "./css/App.css";
 import Grid from "@mui/material/Grid";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <Grid container spacing={0}>
-       <Particlejsmain />
       <Grid item xs={2}>
         <Container className="nav-parent">
           <NavList />
         </Container>
       </Grid>
-      <Grid item xs={10}>
-        <Container id="main" className="home-container">
-          <Home/>
-        </Container>
+      <Grid  item xs={10} style={{ background : "#1e324d"}}>
+        <Outlet style={{ overflow: "hidden" }} />
       </Grid>
     </Grid>
   );

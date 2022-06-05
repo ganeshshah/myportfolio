@@ -5,11 +5,9 @@ import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 import "../css/App.css";
 import emailjs from "@emailjs/browser";
-import NavList from "../uicomponents/NavList";
-import { Grid } from "@mui/material";
 import { Container } from "@mui/material";
 import Card from '@mui/material/Card';
-import { margin } from "@mui/system";
+
 
 
 const validationSchema = yup.object({
@@ -68,14 +66,9 @@ function Contact() {
   });
 
   return (
-    <Grid container spacing={0}>
-      <Grid item xs={2}>
-        <Container className="nav-parent">
-          <NavList />
-        </Container>
-      </Grid>
-      <Grid item xs={10}  style={{ backgroundColor: '#1e324d'}}>
-         <Card sx={{backgroundColor:"#c5d4e7", maxWidth: '520px', paddingTop:'20px',paddingBottom:'20px', margin:"auto", marginTop:"10%"}}>
+    
+      <div style={{ backgroundColor: '#1e324d', height:"100vh"}}>
+         <Card sx={{backgroundColor:"#c5d4e7", maxWidth: '520px', paddingTop:'20px',paddingBottom:'20px'}}>
          <div className="form-container">
             <form onSubmit={formik.handleSubmit}>
               <TextField
@@ -137,8 +130,8 @@ function Contact() {
             </form>
           </div>
          </Card>
-      </Grid>
-    </Grid>
+      </div>
+    
   );
 }
 

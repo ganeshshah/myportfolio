@@ -13,10 +13,8 @@ const myTags = [
   "C++",
   "Python",
   "git",
-  "Node.js",
   "MySQL",
   "Oracle",
-  "jQuery",
 ];
 
 

@@ -25,6 +25,7 @@
     "jquery": "^3.6.0",
     "randomcolor": "^0.6.2",
     "react": "^18.1.0",
+    "react-chrono": "^1.15.3",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",

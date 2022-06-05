@@ -20,14 +20,24 @@
     
 }
 .home-parent {
-    padding-top: 20%;
-    color: rgb(236, 236, 236); 
-    
+    color: rgb(255, 255, 255); 
+    padding-top: 20vh;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size:120%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.aboutContainer{
+  color: rgb(255, 255, 255); 
+  padding-top: 20vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif; 
 }
 
 .skills-bar {
-    height: 100vh;
-    
+    height: 100vh; 
 }
 .skillsprogress{
     float: left;
@@ -85,4 +95,8 @@
   to {
     background-position: 200% center;
   }
+}
+
+.work-container{
+  color: aliceblue;
 }
